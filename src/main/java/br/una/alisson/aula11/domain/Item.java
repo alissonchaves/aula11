@@ -17,21 +17,21 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "pedido_id")
-    private Pedido ped;
+    private Pedido pedido;
 
     @ManyToOne
     @JoinColumn(name = "produto_id")
-    private Produto pro;
+    private Produto produto;
 
     public Item() {
     }
 
-    public Item(Long id, Long quantidade, Long total, Pedido ped, Produto pro) {
+    public Item(Long id, Long quantidade, Long total, Pedido pedido, Produto produto) {
         this.id = id;
         this.quantidade = quantidade;
         this.total = total;
-        this.ped = ped;
-        this.pro = pro;
+        this.pedido = pedido;
+        this.produto = produto;
     }
 
     public Long getId() {
@@ -58,33 +58,35 @@ public class Item {
         this.total = total;
     }
 
-    public Pedido getPed() {
-        return ped;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setPed(Pedido ped) {
-        this.ped = ped;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
-    public Produto getPro() {
-        return pro;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setPro(Produto pro) {
-        this.pro = pro;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
+
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return Objects.equals(id, item.id) && Objects.equals(quantidade, item.quantidade);
+        return Objects.equals(id, item.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, quantidade);
+        return Objects.hash(id);
     }
 
     @Override
@@ -93,8 +95,8 @@ public class Item {
                 "id=" + id +
                 ", quantidade='" + quantidade + '\'' +
                 ", total='" + total + '\'' +
-                ", pedido_id='" + ped + '\'' +
-                ", produto_id='" + pro + '\'' +
+                ", pedido_id='" + pedido + '\'' +
+                ", produto_id='" + produto + '\'' +
                 '}';
     }
 }

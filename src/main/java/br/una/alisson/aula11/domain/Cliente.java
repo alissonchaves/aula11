@@ -61,6 +61,8 @@ public class Cliente {
         this.telefone = telefone;
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

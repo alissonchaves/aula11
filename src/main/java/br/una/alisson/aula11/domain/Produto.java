@@ -17,16 +17,16 @@ public class Produto {
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
-    private Categoria cat;
+    private Categoria categoria;
 
     public Produto() {
     }
 
-    public Produto(Long id, String nome, Long preco, Categoria cat) {
+    public Produto(Long id, String nome, Long preco, Categoria categoria) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
-        this.cat = cat;
+        this.categoria = categoria;
     }
 
     public Long getId() {
@@ -53,13 +53,14 @@ public class Produto {
         this.preco = preco;
     }
 
-    public Categoria getCat() {
-        return cat;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setCat(Categoria cat) {
-        this.cat = cat;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -80,7 +81,7 @@ public class Produto {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", preco='" + preco + '\'' +
-                ", categoria_id='" + cat + '\'' +
+                ", categoria_id='" + categoria + '\'' +
                 '}';
     }
 }
